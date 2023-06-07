@@ -39,20 +39,16 @@
       "last 1 safari version"
     ]
   },
-  "vercel": {
-    "rewrites": [
-      { "source": "/api/(.*)", "destination": "https://evisa-backend.adaptable.app/api/$1" }
-    ],
-    "headers": [
-      {
-        "source": "/api/(.*)",
-        "headers": [
-          { "key": "Access-Control-Allow-Origin", "value": "*" }
-        ]
-      }
-    ]
-  },
+  "proxy": "https://evisa-backend.adaptable.app/",
   "devDependencies": {
     "prettier": "^2.7.1"
+  },
+  "vercel": {
+    "rewrites": [
+      {
+        "source": "/api/:path*",
+        "destination": "https://evisa-backend.adaptable.app/api/:path*"
+      }
+    ]
   }
 }
